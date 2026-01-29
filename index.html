@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-tasks"></i> Modern To-Do</h1>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </button>
+                    <button id="clearAll" class="clear-btn">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clear All</span>
+                    </button>
+                </div>
+            </div>
+            <p class="tagline">Organize your tasks efficiently</p>
+        </header>
+
+        <main class="main-content">
+            <div class="task-input-section">
+                <h2><i class="fas fa-plus-circle"></i> Add New Task</h2>
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="What do you need to do?" 
+                        autocomplete="off"
+                    >
+                    <div class="datetime-inputs">
+                        <div class="input-group">
+                            <label for="taskDate"><i class="far fa-calendar"></i> Date</label>
+                            <input type="date" id="taskDate">
+                        </div>
+                        <div class="input-group">
+                            <label for="taskTime"><i class="far fa-clock"></i> Time</label>
+                            <input type="time" id="taskTime">
+                        </div>
+                    </div>
+                    <div class="priority-selector">
+                        <label>Priority:</label>
+                        <div class="priority-options">
+                            <button class="priority-btn low active" data-priority="low">Low</button>
+                            <button class="priority-btn medium" data-priority="medium">Medium</button>
+                            <button class="priority-btn high" data-priority="high">High</button>
+                        </div>
+                    </div>
+                    <button id="addTaskBtn" class="add-btn">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <div class="tasks-column">
+                    <div class="section-header">
+                        <h3><i class="fas fa-clock"></i> Pending Tasks</h3>
+                        <span id="pendingCount" class="task-count">0</span>
+                    </div>
+                    <div class="tasks-list" id="pendingTasks">
+                        <!-- Pending tasks will be added here dynamically -->
+                        <div class="empty-state">
+                            <i class="far fa-check-circle"></i>
+                            <p>No pending tasks. Add one above!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tasks-column">
+                    <div class="section-header">
+                        <h3><i class="fas fa-check-circle"></i> Completed Tasks</h3>
+                        <span id="completedCount" class="task-count">0</span>
+                    </div>
+                    <div class="tasks-list" id="completedTasks">
+                        <!-- Completed tasks will be added here dynamically -->
+                        <div class="empty-state">
+                            <i class="far fa-star"></i>
+                            <p>No completed tasks yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-intro">
+                <div class="feature-list">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>No Login Required</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Lightning Fast</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-database"></i>
+                        <span>Local Storage</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Fully Responsive</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Modern To-Do List &copy; <span id="currentYear"></span> - Made with <i class="fas fa-heart"></i></p>
+            <p class="footer-note">Your data is stored locally in your browser</p>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
